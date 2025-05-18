@@ -7,6 +7,7 @@ title: "The isomorphism problem for ideal class monoids of numerical semigroups"
 coverDate: ""
 background: ""
 aspectRatio: 16/10
+download: true
 fonts:
   # basically the text
   sans: Lato
