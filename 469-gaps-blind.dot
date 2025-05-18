@@ -1,0 +1,14 @@
+digraph  NSGraph{rankdir = TB; edge[dir=back];
+1 [label=""];
+2 [label=""];
+3 [label=""];
+4 [label=""];
+5 [label=""];
+6 [label=""];
+4 -> 1;
+5 -> 1;
+6 -> 2;
+5 -> 3;
+6 -> 4;
+6 -> 5;
+}
