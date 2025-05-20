@@ -50,7 +50,9 @@ fonts:
 
 ---
 
-# The ideal class monoid 
+# Ideals of a numerical semigroup 
+
+For $A,B\subseteq \mathbb{Z}$, we write $A+B=\{a+b : a\in A, b\in B\}$
 
 Let $S$ be a numerical semigroup ($S\subseteq\mathbb{N}$, $0\in S$, $S+S\subseteq S$, $\operatorname{G}(S)$ finite)
 
@@ -58,6 +60,45 @@ An **ideal** of $S$ is a non-empty set $I$ of integers such that
 
 - $I+S\subseteq I$
 - $z+I\subseteq S$ for some integer $z$ (equivalently, $\min(I)$ exists)
+
+There exists $X\subseteq \mathbb{Z}$ such that $I=X+S$, we can take $X$ to be a finite set of integers
+
+The set $X$ is called a **set of generators** of $I$, and it is a **minimal set of generators** if $I$ if no proper subset of $X$ generates $I$ 
+
+The minimal set of generators of $I$ is unique and equals $\operatorname{Minimals}_{\leq S}(I)$, where
+
+$$
+a\leq_S b \text{ if } b-a\in S
+$$
+
+If $I,J$ are ideals of $S$, then $I+J$, $I\cap J$, $I\cup J$ are ideals of $S$ 
+
+---
+
+# The monoid of ideals of a numerical semigroup
+
+Let $S$ be a numerical semigroup and $\mathcal{I}(S)$ the set of ideals of $S$
+
+The set $\mathcal{I}(S)$ is a monoid with respect to the operation $+$, the sum of ideals
+
+Denote by $\mathfrak{P}(S)$ the set of principal ideals of $S$ (that is, the set of ideals of the form $a+S$ for some $a\in S$)
+
+1. $\mathfrak{P}(S)$ is a divisor-closed ($I+J\in \mathfrak{P}(S)$ implies $I,J\in \mathfrak{P}(S)$) submonoid of $\mathfrak{I}(S)$
+
+1. Every (non-trivial) divisor-closed submonoid of $\mathfrak{I}(S)$ contains $\mathfrak{P}(S)$
+
+1. Isomorphisms between monoids send divisor-closed submonoids to divisor-closed submonoids
+
+1. If $S$ and $T$ are numerical semigroups, every isomorphism between $\mathfrak{I}(S)$ and $\mathfrak{I}(T)$ restricts to an isomorphism between $\mathfrak{P}(S)$ and $\mathfrak{P}(T)$
+
+1. The monoid $\mathfrak{P}(S)$ is isomorphic to $S$ (under the map $a\mapsto a+S$)
+
+
+**Conclusion**: If $\mathcal{I}(S)$ and $\mathcal{I}(T)$ are isomorphic as monoids, then $S=T$
+
+---
+
+# The ideal class monoid 
 
 Let $\mathcal{I}(S)$ be the set of ideals of $S$
 
@@ -80,20 +121,22 @@ Let $\mathcal{I}_0(S) = \{ I\in \mathcal{I}(S) : \min(I)=0 \}$, the set of norma
 It follows easily that
 
 $$
-\mathcal{C}\ell(S)\cong \mathcal{I}_0(S), [I]\mapsto -\min(I)+I
+\mathcal{C}\ell(S)\cong \mathcal{I}_0(S) 
 $$
 
-For $I\in \mathcal{I}_0(S)$, there exists $g_1,\dots,g_k\in\operatorname{G}(S)=\operatorname{G}(S)$ such that 
+$$
+[I]\mapsto -\min(I)+I
+$$
+
+For $I\in \mathcal{I}_0(S)$, there exists $g_1,\dots,g_k\in\operatorname{G}(S)=\mathbb{N}\setminus S$ such that 
 
 $$
 I=\{0,g_1,\dots,g_k\}+S
 $$
 
-Moreover, $\{g_1,\ldots,g_k\}$ can be taken to be an anti-chain with respect to 
+Moreover, $\{g_1,\ldots,g_k\}$ can be taken to be an anti-chain with respect to $\le_S$
 
-$$a\le_S b  \text{ if } b-a\in S$$
-
-and $0,g_1,\ldots,g_k$ are the minimal generators of $I$
+Thus, $0,g_1,\ldots,g_k$ are the minimal generators of $I$
 
 Thus, the cardinality of $\mathcal{C}\ell(S)$ equals the number of antichains in $(\operatorname{G}(S),\le_S)$
 
@@ -101,11 +144,11 @@ Thus, the cardinality of $\mathcal{C}\ell(S)$ equals the number of antichains in
 
 # Hasse diagram of normalized ideals wrt inclusion
 
-Let $S$ be a numerical semigroup with multiplicity $m$
+Let $S$ be a numerical semigroup with multiplicity $m$, that is, $m=\min(S\setminus\{0\})$
 
 <Transform :scale="0.9">
 
-<div class="grid grid-cols-[60%_40%] gap-4">
+<div class="grid grid-cols-[50%_50%] gap-4">
 
 <div>
 
@@ -120,10 +163,10 @@ Let $S$ be a numerical semigroup with multiplicity $m$
 
 - Minimal non-tivial ideals: 
     
-    $\{0,f\}+S$, $f\in\operatorname{Maximals}_{\le_S}(\mathbb{Z}\setminus S)$
+    $\{0,f\}+S$ with $f\in\operatorname{Maximals}_{\le_S}(\mathbb{Z}\setminus S)$
     
     $|\operatorname{Minimals}_\subseteq(\mathcal{I}_0(S)\setminus\{S\})| = \operatorname{t}(S)$, the type of $S$
-- Height equals $|\operatorname{G}(S)|+1$
+- Height equals $|\operatorname{G}(S)|+1$, the genus of $S$ plus one
 
 </div>
 
@@ -131,7 +174,7 @@ Let $S$ be a numerical semigroup with multiplicity $m$
 
 <figure>
 
-<img src="/NSGraph4.svg" alt="469-ideal-min-gen" width="90%">
+<img src="/NSGraph4.svg" alt="469-ideal-min-gen" width="95%">
 
 <figcaption align="center">
 
@@ -149,13 +192,13 @@ Hasse diagram of $\footnotesize{(\mathcal{I}_0(\langle 4,6,9\rangle),\subseteq)}
 
 ---
 
-# How to fully recover $S$ from $(\mathcal{I}_0(S),\subseteq)$?
+# Can we fully recover $S$ from $(\mathcal{I}_0(S),\subseteq)$?
 
 **Idea**: $\{0,g\}+S\subseteq \{0,g'\}+S$ if and only if $g'\le_S g$
 
 Thus, if we can tell apart the ideals of the form $\{0,g\}+S$, with $g\in \operatorname{G}(S)$, then we recover $(\operatorname{G}(S),\le_S)$
 
-**Result** The number of minimal generators of $I$ minus one is precisely the number of elements in the poset $(\mathcal{I}_0(S),\subseteq)$ covered by $I$ 
+**Result**: The number of non-zero minimal generators of $I$ is precisely the number of elements in the poset $(\mathcal{I}_0(S),\subseteq)$ covered by $I$ 
 
 
 <div class="absolute left-25% top-44%">
@@ -192,9 +235,7 @@ In a run of gaps, the number of divisors remains constant
 In a run of elements of $S$, the number of divisors increases by the length of the run
 
 
-# Poset isomorphism (wrt inclusion)
-
-**Result:** If $S$ and $T$ are numerical semigroups such that the poset $(\mathcal{I}_0(S),\subseteq)$ is isomorphic to $(\mathcal{I}_0(T),\subseteq)$,<br> then $S=T$
+**Conclusion:** If $S$ and $T$ are numerical semigroups such that the poset $(\mathcal{I}_0(S),\subseteq)$ is isomorphic to $(\mathcal{I}_0(T),\subseteq)$,<br> then $S=T$
 
 ---
 
@@ -225,16 +266,14 @@ If $S$ and $T$ are numerical semigroups such that the monoid $(\mathcal{I}_0(S),
 
 1. Apply induction on the genus: $S$ and $T$ have the same genus and the same unitary extensions
 
-1. The intersection of all the unitary extensions of $S\neq \mathbb{N}$ equals $S$ or 
-   
-   $S\cup \{\operatorname{F}(S)\}$ (if $S$ is irreducible) with $\operatorname{F}(S)=\max(\mathbb{Z}\setminus S)$ the Frobenius number of $S$ 
+1. The intersection of all the unitary extensions of $S\neq \mathbb{N}$ equals $S$ or  $S\cup \{\operatorname{F}(S)\}$ (if $S$ is irreducible) with $\operatorname{F}(S)=\max(\mathbb{Z}\setminus S)$ the Frobenius number of $S$ 
 
 
 1. $S$ is irreducible if and only if $\mathcal{I}_0(S)$ has at most two quarks; if $S\neq \mathbb{N}$,
     
-   - one quark means symmetric
+   - one quark means symmetric ($x\in \mathbb{Z}\setminus S$ if and only if $\operatorname{F}(S)-x\in S$)
     
-   - two quarks translates pseudo-symmetry
+   - two quarks translates pseudo-symmetry ($\operatorname{F}(S)$ even, $\operatorname{F}(S)/2\neq x\in \mathbb{Z}\setminus S$ if and only if $\operatorname{F}(S)-x\in S$)
 
 1. In the irreducible case, we recover $\operatorname{F}(S)$ from the genus of $S$
 
@@ -259,7 +298,7 @@ If $S$ and $T$ are numerical semigroups such that the poset $(\mathcal{I}_0(S),\
 <p style="font-size:0.8em">
 
 Hasse diagram of $\mathcal{I}_0(\langle 4,6,9\rangle)$; nodes labelled <br> 
-with sets of minimal generators
+with sets of minimal generators<br> gray nodes are idempotents (oversemigroups)
 
 </p>
 
@@ -309,11 +348,13 @@ By studying how the posets $(\mathcal{I}_0(S),\preceq)$ and $(\mathcal{I}_0(S\se
 
 If $S$ has multiplicity larger than five, then the poset $(\mathcal{I}_0(S),\preceq)$ is not a lattice
 
+**Conclusion**: The poset $(\mathcal{I}_0(S),\preceq)$ is a lattice if and only if $S$ has multiplicity at most four
+
 ---
 
 # Related problems
 
-## irreducible elements
+## Irreducible elements
 
 Detect irreducibles with respect to the operations in $\mathcal{I}_0(S)$: $+$, $\cap$, $\cup$
 
@@ -343,6 +384,8 @@ An ideal $I$ is reflexive if $S-(S-I)=I$
 
 The star operation defined as $I^* = S-(S-I)$ is an involution on $\mathcal{I}_0(S)$
 
+Find a characterization of reflexive ideals in terms of Kunz coordinates
+
 ---
 
 # Related problems
@@ -364,6 +407,8 @@ It easily follows that $T$ is associated to $S$ if and only if
 There is a one-to-one correspondence between the set of associated numerical sets of $S$ and the set of partitions associated to $S$ (partitions whose hook sets are $\operatorname{G}(S)$)
 
 ---
+zoom: 0.9
+---
 
 # References
 
@@ -375,11 +420,13 @@ There is a one-to-one correspondence between the set of associated numerical set
 
 - L. Casabella, M. D'Anna, P. A. García-Sánchez Apéry sets and the ideal class monoid of a numerical semigroup, Mediterr. J. Math. 21:7 (2024)
 
+- M. Delgado,  P.A.  García-Sánchez,  and  J. Morais, NumericalSgps, A package for numerical semigroups, Version 1.3.1 (2022), (Refereed GAP package), https://gap-packages.github.io/numericalsgps
+
 - P. A. García-Sánchez, The isomorphism problem for ideal class monoids of numerical semigroups, Semigroup Forum 108 (2024), 365–376.
 
 - P. A. García-Sánchez, Factorizations into irreducible numerical semigroups, https://arxiv.org/abs/2410.13729
 
-- M. Delgado,  P.A.  García-Sánchez,  and  J. Morais, NumericalSgps, A package for numerical semigroups, Version 1.3.1 (2022), (Refereed GAP package), https://gap-packages.github.io/numericalsgps
+- P. A. García-Sánchez, S. Tringali, Semigroups of ideals and isomorphism problems, Proc. Am. Math. Soc. 153 (2025), 2323–2339.
 
 
 ---
@@ -391,6 +438,6 @@ background: ""
 
 Find our more at [numerical-semigroups.github.io](http://numerical-semigroups.github.io/)
 
-Slides produced with [slidev](https://es.sli.dev/)
+[Slides](https://github.com/pedritomelenas/slides-CANT-2025) produced with [slidev](https://es.sli.dev/)
 
 <!--<SlideCurrentNo /> -->
