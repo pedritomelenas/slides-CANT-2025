@@ -54,7 +54,7 @@ fonts:
 
 For $A,B\subseteq \mathbb{Z}$, we write $A+B=\{a+b : a\in A, b\in B\}$
 
-Let $S$ be a numerical semigroup ($S\subseteq\mathbb{N}$, $0\in S$, $S+S\subseteq S$, $\operatorname{G}(S)$ finite)
+Let $S$ be a numerical semigroup ($S\subseteq\mathbb{N}$, $0\in S$, $S+S\subseteq S$, $\mathbb{N}\setminus S$ finite)
 
 An **ideal** of $S$ is a non-empty set $I$ of integers such that
 
@@ -63,9 +63,9 @@ An **ideal** of $S$ is a non-empty set $I$ of integers such that
 
 There exists $X\subseteq \mathbb{Z}$ such that $I=X+S$, we can take $X$ to be a finite set of integers
 
-The set $X$ is called a **set of generators** of $I$, and it is a **minimal set of generators** if $I$ if no proper subset of $X$ generates $I$ 
+The set $X$ is called a **set of generators** of $I$, and it is a **minimal set of generators** of $I$ if no proper subset of $X$ generates $I$ 
 
-The minimal set of generators of $I$ is unique and equals $\operatorname{Minimals}_{\leq S}(I)$, where
+The minimal set of generators of $I$ is unique and equals $\operatorname{Minimals}_{\leq_S}(I)$, where
 
 $$
 a\leq_S b \text{ if } b-a\in S
@@ -107,7 +107,7 @@ We write $I\sim J$ if there exists $z\in\mathbb{Z}$ such that $I=z+J$
 The **ideal class monoid** of $S$ is 
 
 $$
- \mathcal{C}\ell(S) = \mathcal{I}(S)/\sim  
+ \mathcal{C}\ell(S) = \mathcal{I}(S)/{\sim}  
 $$
 
 Addition is defined as $[I]+[J]=[I+J]$
