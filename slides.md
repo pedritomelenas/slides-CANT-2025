@@ -358,7 +358,7 @@ If $S$ has multiplicity larger than five, then the poset $(\mathcal{I}_0(S),\pre
 
 Detect irreducibles with respect to the operations in $\mathcal{I}_0(S)$: $+$, $\cap$, $\cup$
 
-If the poset $(\mathcal{I}_0(S),\preceq)$ a lattice, with respect to meet and join, and relate these to the above operations
+If the poset $(\mathcal{I}_0(S),\preceq)$ is a lattice, with respect to meet and join, and relate these to the above operations
 
 
 ## Factorizations into irreducible elements
